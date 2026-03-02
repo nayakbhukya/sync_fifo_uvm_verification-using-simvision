@@ -1,5 +1,5 @@
-🔷 Synchronous FIFO Design & Verification using SystemVerilog and UVM
-📌 Project Overview
+#   Synchronous FIFO Design & Verification using SystemVerilog and UVM
+## Project Overview
 
 This project implements and verifies a parameterized Synchronous FIFO (First-In-First-Out) using:
 
@@ -17,7 +17,7 @@ Coverage & Assertion Reporting (Xcelium)
 
 The goal of this project is to demonstrate complete RTL-to-Verification flow, including constrained random testing and coverage-driven verification.
 
-🧠 Design Description
+#  Design Description
 1️⃣ FIFO Type
 
 Synchronous FIFO
@@ -34,7 +34,7 @@ parameter DEPTH      = 16;
 
 The FIFO consists of:
 
-Memory array
+Memory array of dff
 
 Write pointer
 
@@ -65,7 +65,7 @@ Embedded SystemVerilog Assertions ensure correctness at RTL level:
 ✔ No write when full
 ✔ Correct full flag logic
 ✔ Correct empty flag logic
-✔ No X on pointers
+✔ No unknow (X) on pointers
 
 Assertions are wrapped using:
 
@@ -89,7 +89,7 @@ uvm_test
         │     └── sequencer
         └── scoreboard
 🧩 UVM Components
-1️⃣ Interface
+## Interface
 
 Contains:
 
@@ -99,7 +99,7 @@ Modports (Driver & Monitor separation)
 
 Ensures clean timing between DUT and testbench.
 
-2️⃣ Sequence Item (Transaction)
+## Sequence Item (Transaction)
 
 Defines:
 
@@ -117,7 +117,7 @@ full
 
 Supports constrained random generation.
 
-3️⃣ Sequences
+##  Sequences
 
 Implemented multiple test scenarios:
 
@@ -128,7 +128,7 @@ fifo_wr_then_rd_sequence	Write then Read
 fifo_write_read_sequence	Alternating
 fifo_wr_rd_parallel_seq	Simultaneous wr/rd
 fifo_sequence	Random mixed traffic
-4️⃣ Driver
+## Driver
 
 Drives wr, rd, data_in
 
@@ -136,7 +136,7 @@ Uses clocking block
 
 Controlled via sequencer
 
-5️⃣ Monitor
+## Monitor
 
 Samples DUT outputs
 
@@ -146,7 +146,7 @@ Sends to scoreboard
 
 Collects functional coverage
 
-6️⃣ Scoreboard (Self-checking)
+## Scoreboard (Self-checking)
 
 Implements reference model using queue:
 
@@ -166,7 +166,7 @@ Handles underflow detection
 
 Fully automated verification.
 
-📊 Functional Coverage
+## Functional Coverage
 
 Covergroup tracks:
 
@@ -188,7 +188,7 @@ rd × empty
 
 Ensures stimulus quality.
 
-🔁 Test Control
+## Test Control
 
 Tests selected using:
 
@@ -214,7 +214,7 @@ Functional coverage
 Coverage stored in:
 
 cov_work/
-🏁 Simulation Tool
+## Simulation Tool
 
 Tested using:
 
@@ -224,7 +224,7 @@ UVM 1.1d
 
 IEEE 1800-2009 SV semantics
 
-🧱 Synthesis Compatibility
+## Synthesis Compatibility
 
 Assertions disabled during synthesis
 
@@ -232,7 +232,7 @@ Clean synthesizable RTL
 
 Suitable for Genus flow
 
-🚀 Key Learning Outcomes
+## Key Learning Outcomes
 
 ✔ FIFO pointer arithmetic
 ✔ Full/Empty logic implementation
@@ -245,7 +245,7 @@ Suitable for Genus flow
 ✔ Assertion failure debugging
 ✔ Factory registration & test selection
 
-🎯 Project Highlights
+## Project Highlights
 
 Fully self-checking
 
@@ -259,7 +259,7 @@ Clean UVM architecture
 
 Industry-style verification flow
 
-🔥 Future Improvements
+## Future Improvements
 
 Add Almost Full / Almost Empty
 
@@ -273,7 +273,7 @@ Add AXI-stream wrapper
 
 Add asynchronous FIFO version
 
-🧠 Why This Project is Strong
+## Why This Project is Strong
 
 This project demonstrates:
 
