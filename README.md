@@ -17,6 +17,9 @@ Coverage & Assertion Reporting (Xcelium)
 
 The goal of this project is to demonstrate complete RTL-to-Verification flow, including constrained random testing and coverage-driven verification.
 
+# command to invoke the " cadence xcelium "
+To start Cadence Xcelium, first make sure the tool environment is properly loaded on your system. In most lab setups, you need to source the Cadence installation path so that the xrun command becomes available. You can check whether it is accessible by typing which xrun in the terminal. If a valid installation path appears, Xcelium is ready to use. or create the new folder and make it as root directory as triminal to be open in that folder and type Xrun -to your project directory (for example, where your filelist.f and SystemVerilog files are located). To compile and run a UVM-based simulation, use a command like xrun -uvm -f filelist.f, which will compile, elaborate, and execute the design. If you want to debug using the graphical interface, add the -gui option (xrun -uvm -f filelist.f -gui) to open SimVision for waveform viewing. Before re-running simulations, it is good practice to delete previous simulation folders such as xcelium.d to avoid stale data. This is the standard way to start and run simulations in Xcelium for RTL or UVM verification projects. unlike vivado we don't requied to select fpga board for simulation. As it is based on cpu simulator.
+
 #  Design Description
 1️⃣ FIFO Type
 
@@ -81,14 +84,15 @@ Ignored during synthesis
 
 The testbench follows standard UVM layered architecture:
 
+```text
 uvm_test
-  └── environment
-        ├── agent
-        │     ├── driver
-        │     ├── monitor
-        │     └── sequencer
-        └── scoreboard
-🧩 UVM Components
+└── environment
+    ├── agent
+    │   ├── driver
+    │   ├── monitor
+    │   └── sequencer
+    └── scoreboard
+```
 ## Interface
 
 Contains:
